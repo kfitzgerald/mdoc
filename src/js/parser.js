@@ -1,7 +1,7 @@
 
-var showdown = require('./lib/showdown');
-
-var _headingLevel;
+var showdown = require('./lib/showdown'),
+    _headingLevel,
+    _showdownExtensions = { extensions: ['table'] };
 
 
 exports.parseDoc = function(mdown, headingLevel){
@@ -19,8 +19,14 @@ exports.parseDoc = function(mdown, headingLevel){
 };
 
 exports.parseMdown = function(mdown){
-    return showdown.parse(mdown);
+    return parseWithShowdown(mdown);
 };
+
+
+function parseWithShowdown (md, gh) {
+    var converter = new showdown.converter(_showdownExtensions);
+    return converter.makeHtml(md, gh);
+}
 
 
 function wrapCode(str, p1, p2){
@@ -81,7 +87,7 @@ function getDescription(mdown, fromIndex) {
         return null;
     }
 
-    desc = showdown.parse(desc.replace(/\n+/, ' '))
+    desc = parseWithShowdown(desc.replace(/\n+/, ' '))
                     .replace(/<\/?p>/g, '') //remove paragraphs
                     .replace(/<\/?a[^>]*>/g, ''); //remove links since it breaks layout
     return desc;
@@ -109,7 +115,7 @@ function parseContent(mdown, toc){
         tocContent += ' - ['+ val.name +'](#'+ val.href +')\n';
     });
 
-    return showdown.parse( pre + tocContent + post );
+    return parseWithShowdown( pre + tocContent + post );
 }
 
 
