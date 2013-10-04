@@ -8,6 +8,10 @@ feature and quick browsing between classes/methods/properties.
 
 Reasoning behind it: [inline documentation, why I'm ditching it](http://blog.millermedeiros.com/2011/03/inline-documentation-why-im-ditching-it/).
 
+## KFitzgerald's Fork Changes
+* Updated showdown
+* Added support for showdown extensions
+* Enabled the showdown table extension
 
 
 ## Markdown syntax
