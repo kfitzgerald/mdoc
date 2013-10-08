@@ -1,7 +1,7 @@
 
 var showdown = require('./lib/showdown'),
     _headingLevel,
-    _showdownExtensions = { extensions: ['table'] };
+    _showdownExtensions = { extensions: ['table','definition','github'] };
 
 
 exports.parseDoc = function(mdown, headingLevel){
