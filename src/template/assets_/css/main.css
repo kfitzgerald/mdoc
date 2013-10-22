@@ -212,6 +212,7 @@ samp {
     _font-family: 'courier new', monospace;
     font-size: 1em;
     background-color:#f0f0f0;
+    padding: .05em .25em;
 }
 
 /*
@@ -286,7 +287,7 @@ dd {
 }
 
 dl p, dd p {
-    margin: 0 0 .5em;
+    margin: 0 .5em .5em 0;
 }
 
 dd code {
@@ -295,7 +296,7 @@ dd code {
 
 dl.inline-def dt {
     float: left;
-    width: 35%;
+    min-width: 35%;
     font-weight: 700;
 }
 
