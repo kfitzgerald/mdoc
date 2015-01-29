@@ -30,7 +30,11 @@ function parseWithShowdown (md, gh) {
 
 
 function wrapCode(str, p1, p2){
-    return p1? '<pre class="brush:'+ p1 +'">\n'+ p2 +'</pre>' : '<pre>\n'+ p2 +'</pre>';
+    return p1? '<pre class="brush:'+ p1 +'">\n'+ p2.replace(/[\u00A0-\u9999<>\&]/gim, function(i) {
+        return '&#'+i.charCodeAt(0)+';';
+    }) +'</pre>' : '<pre>\n'+ p2.replace(/[\u00A0-\u9999<>\&]/gim, function(i) {
+        return '&#'+i.charCodeAt(0)+';';
+    }) +'</pre>';
 }
 
 function convertCodeBlocks(mdown){
