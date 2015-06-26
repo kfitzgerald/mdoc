@@ -97,7 +97,7 @@
     };
 
     // Client-side export
-    if (typeof window !== 'undefined' && window.Showdown && window.Showdown.extensions) { window.Showdown.extensions.twitter = definitionList; }
+    if (typeof window !== 'undefined' && window.Showdown && window.Showdown.extensions) { window.Showdown.extensions.definition = definitionList; }
     // Server-side export
     if (typeof module !== 'undefined') module.exports = definitionList;
 
