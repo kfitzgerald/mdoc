@@ -1028,7 +1028,7 @@ var _DoGithubCodeBlocks = function(text) {
 			codeblock = codeblock.replace(/^\n+/g,""); // trim leading newlines
 			codeblock = codeblock.replace(/\n+$/g,""); // trim trailing whitespace
 
-			codeblock = "<pre><code" + (language ? " class=\"" + language + '"' : "") + ">" + codeblock + "\n</code></pre>";
+			codeblock = "<pre><code" + (language ? " class=\"language-" + language + '"' : "") + ">" + codeblock + "\n</code></pre>";
 
 			return hashBlock(codeblock);
 		}
@@ -1130,10 +1130,10 @@ var _EncodeCode = function(text) {
 var _DoItalicsAndBold = function(text) {
 
 	// <strong> must go first:
-	text = text.replace(/(\*\*|__)(?=\S)([^\r]*?\S[*_]*)\1/g,
+	text = text.replace(/(?:^|\s)(\*\*|__)(?=\S)([^\r]*?\S[*_]*)\1/g,
 		"<strong>$2</strong>");
 
-	text = text.replace(/(\*|_)(?=\S)([^\r]*?\S)\1/g,
+	text = text.replace(/(?:^|\s)(\*|_)(?=\S)([^\r]*?\S)\1/g,
 		"<em>$2</em>");
 
 	return text;
