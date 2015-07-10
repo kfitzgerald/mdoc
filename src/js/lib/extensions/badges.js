@@ -11,7 +11,7 @@
                 if (leadingSlash === '\\') {
                     return match;
                 } else {
-                    return '<span class="badge ' + badgeName + '">'+badgeName+'</span>';
+                    return '<span class="badge ' + badgeName + '">'+entireThing+'</span>';
                 }
             }},
 
